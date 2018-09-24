@@ -80,6 +80,7 @@ export default Kapsule({
       paintArrows();
       paintPhotons();
       paintNodes();
+      paintLinkLabels();
 
       return this;
 
@@ -297,6 +298,38 @@ export default Kapsule({
         });
         ctx.restore();
       }
+
+        function paintLinkLabels() {
+            const ctx = state.ctx;
+
+            ctx.save();
+            state.graphData.links.forEach(link => {
+                const label = link.labels;
+                const fontSize = 11 / state.globalScale;
+
+                const start = link.source;
+                const end = link.target;
+
+                if (!start.hasOwnProperty('x') || !end.hasOwnProperty('x')) return; // skip invalid link
+
+                // Construct bezier for curved lines
+                const bzLine = link.__controlPoints && new Bezier(start.x, start.y, ...link.__controlPoints, end.x, end.y);
+
+                const coords = bzLine
+                    ? bzLine.get(9)  // get position along bezier line
+                    : { // straight line: interpolate linearly
+                        x: (end.x + start.x) / 2,
+                        y: (end.y + start.y) / 2
+                    };
+
+                ctx.fillStyle = link.source.color || 'rgba(5,5,5,1)';
+                ctx.font = `italic ${fontSize}px Sans-Serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('(' + label.join(", ") + ')', coords.x, coords.y);
+            });
+            ctx.restore();
+        }
     }
   },
 

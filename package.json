@@ -1,15 +1,15 @@
 {
-  "name": "force-graph",
-  "version": "1.8.0",
-  "description": "2D force-directed graph rendered on HTML5 canvas",
-  "unpkg": "dist/force-graph.min.js",
-  "main": "dist/force-graph.common.js",
-  "module": "dist/force-graph.module.js",
+  "name": "force-graph-labeled-links",
+  "version": "1.0.0",
+  "description": "Labeled links extesion for 2D force-directed graph rendered on HTML5 canvas developed by vasturiano",
+  "unpkg": "dist/force-graph-labeled-links.min.js",
+  "main": "dist/force-graph-labeled-links.common.js",
+  "module": "dist/force-graph-labeled-links.module.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vasturiano/force-graph.git"
+    "url": "git+https://github.com/SukPavel/force-graph.git"
   },
-  "homepage": "https://github.com/vasturiano/force-graph",
+  "homepage": "https://github.com/SukPavel/force-graph",
   "keywords": [
     "2d",
     "force",
@@ -19,16 +19,12 @@
     "d3"
   ],
   "author": {
-    "name": "Vasco Asturiano",
-    "url": "http://bl.ocks.org/vasturiano"
-  },
-  "bugs": {
-    "url": "https://github.com/vasturiano/force-graph/issues"
+    "name": "Pavel Suk"
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
     "watch": "rollup -c -w",
-    "minify": "uglifyjs dist/force-graph.js -o dist/force-graph.min.js -c -m --comments '/Version/'",
+    "minify": "uglifyjs dist/force-graph-labeled-links.js -o dist/force-graph-labeled-links.min.js -c -m --comments '/Version/'",
     "build-module": "rollup -c rollup.config.module.js",
     "prepublish": "npm run build && npm run minify && npm run build-module"
   },
