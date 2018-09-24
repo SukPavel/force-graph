@@ -1,6 +1,6 @@
 {
   "name": "force-graph-labeled-links",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Labeled links extesion for 2D force-directed graph rendered on HTML5 canvas developed by vasturiano",
   "unpkg": "dist/force-graph-labeled-links.min.js",
   "main": "dist/force-graph-labeled-links.common.js",

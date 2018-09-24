@@ -24,6 +24,7 @@ const linkedProps = Object.assign(
     'linkColor',
     'linkAutoColorBy',
     'linkWidth',
+    'linkLabeled',
     'linkDirectionalArrowLength',
     'linkDirectionalArrowColor',
     'linkDirectionalArrowRelPos',
